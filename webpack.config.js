@@ -130,7 +130,7 @@ module.exports = {
       },
       {
         "test": /\.(png|woff|woff2|eot|ttf|svg|jpeg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        "loader": 'url'
+        "loader": 'url-loader'
       },
       {
         "exclude": [
