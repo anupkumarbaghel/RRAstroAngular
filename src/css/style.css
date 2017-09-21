@@ -427,5 +427,10 @@ a, a:hover
     h3.txt-tl{
         font-size: 20px;
     }
+    .divide {
+        border-right: 1px solid #070707;
+        padding-right: 10px;
+        margin-right: -10px;
+    }
 }
 /****/

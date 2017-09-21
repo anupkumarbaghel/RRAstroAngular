@@ -2,7 +2,8 @@
     <div class="wrapper">
             <div class="panel with-nav-tabs panel-info">
                     <div class="panel-body">
-        <div class="col-md-6" style="align-content:center">
+        <div class="col-md-6 divide" style="align-content:center; border-right: 1px solid #ccc;padding-right: 30px;
+        margin-right: -10px;">
             
                     <div class="tab-content">
                         <div id="login" class="tab-pane fade in active register">
@@ -61,16 +62,18 @@
                     </div>
                 </div>
            
-        <div class="col-md-6">
-                <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-6" >
+                <div class="col-md-offset-3">
                         <alert></alert>
-                        <h2>Register</h2>
+                        <h2 class="text-center" style="color: #337ab7;"> <strong> Register </strong> </h2><hr />
                         <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+                                
                             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-                                <label for="Email">Email</label>
-                                <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required />
+                                <!-- <label for="Email">Email</label> -->
+                                <input type="text" class="form-control" name="email" placeholder="Email" [(ngModel)]="model.email" #email="ngModel" required />
                                 <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
                             </div>
+                            
                             <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
                                 <label for="lastName">Last Name</label>
                                 <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" required />
@@ -82,19 +85,19 @@
                                 <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
                             </div>-->
                             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }"> 
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+                                <!-- <label for="password">Password</label> -->
+                                <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel" required />
                                 <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
                             </div>
                             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !confirmPassword.valid }"> 
-                                    <label for="confirmPassword">Confirm Password</label>
-                                    <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" required />
+                                    <!-- <label for="confirmPassword">Confirm Password</label> -->
+                                    <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" required />
                                     <div *ngIf="f.submitted && !confirmPassword.valid" class="help-block">Confirm Password is required</div>
                                 </div>
                             <div class="form-group">
-                                <button [disabled]="loading" class="btn btn-primary">Register</button>
+                                <button [disabled]="loading" class="btn btn-primary btn-block btn-lg">Register</button>
                                 <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-                                <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+                                <!-- <a [routerLink]="['/login']" class="btn btn-link">Cancel</a> -->
                             </div>
                         </form>
                     </div>

@@ -14,6 +14,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AlertComponent } from './alert/alert.component'
 import {AlertService} from './Service/alert.service'
+import {AuthenticationService} from './Service/authentication.service'
 import { UserService } from './Service/user.service';
 import{HttpModule} from '@angular/http';
 import { AppConfig } from './app.config';
@@ -32,7 +33,7 @@ import { AppConfig } from './app.config';
   imports: [
     BrowserModule, RouterModule.forRoot(appRoute),FormsModule,HttpModule
   ],
-  providers: [AlertService, UserService, AppConfig],
+  providers: [AlertService, UserService, AppConfig, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
