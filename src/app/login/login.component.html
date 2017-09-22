@@ -10,6 +10,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <h2 class="text-center" style="color: #337ab7;"> <strong> Login  </strong></h2><hr />
+                                    <form name="form1" (ngSubmit)="fl.form.valid && login()" #fl="ngForm" novalidate>
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
@@ -17,7 +18,7 @@
                                                     <div class="input-group-addon">
                                                         <span class="glyphicon glyphicon-user"></span>
                                                     </div>
-                                                    <input type="text" placeholder="User Name" id="uname" name="uname" class="form-control">
+                                                    <input type="text" placeholder="User Name" id="uname" name="uname" class="form-control" [(ngModel)]="model.username" #email="ngModel"  >
                                                     <!--<div [hidden]="nameRef.valid || nameRef.pristine" class="alert alert-danger">
                                                         Please enter the username
                                                     </div>-->
@@ -33,7 +34,7 @@
                                                     <div class="input-group-addon">
                                                         <span class="glyphicon glyphicon-lock"></span>
                                                     </div>
-                                                    <input type="password" placeholder="Password" name="pass" class="form-control" >
+                                                    <input type="password" placeholder="Password" name="pass" class="form-control" [(ngModel)]="model.password" #password="ngModel"  >
                                                     <!--<div [hidden]="passRef.valid || passRef.pristine" class="alert alert-danger">
                                                         Please enter the password
                                                     </div>-->
@@ -51,16 +52,20 @@
                                     <hr />
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <button type="submit" class="btn btn-primary btn-block btn-lg" (click)="loginUser()"> Login </button>
-                                            
+                                            <!-- <button type="submit" class="btn btn-primary btn-block btn-lg"> Login </button> -->
+                                            <button [disabled]="loading" class="btn btn-primary btn-block btn-lg">Login</button>
+                                            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                                         </div>
                                     </div>
+                                    </form>
+                                    </div>
                                 </div>
+                                
                             </div>
                         </div>
 
                     </div>
-                </div>
+                
            
         <div class="col-md-6" >
                 <div class="col-md-offset-3">
