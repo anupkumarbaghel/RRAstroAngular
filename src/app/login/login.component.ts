@@ -37,9 +37,11 @@ export class LoginComponent implements OnInit {
         .subscribe(
             data => {
               this.alertService.success('Login successful', true);
-                this.router.navigate([this.returnUrl]);
+              console.log("Login successful");
+              this.router.navigate(['/services']);
             },
             error => {
+              console.log("error");
                 this.alertService.error(error._body);
                 this.loading = false;
             });
@@ -51,7 +53,7 @@ export class LoginComponent implements OnInit {
           .subscribe(
               data => {
                   this.alertService.success('Registration successful', true);
-                  this.router.navigate(['/login']);
+                  this.router.navigate(['/services']);
               },
               error => {
                   this.alertService.error(error._body);
