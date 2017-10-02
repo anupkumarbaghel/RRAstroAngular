@@ -15,13 +15,21 @@ export class LoginComponent implements OnInit {
   model: any = {};
   loading = false;
   returnUrl: string;
+  isLogin : boolean = false;
 
+
+  onUserLoginUpdate(isUserLoggedIn: boolean): void
+  {
+      this.authenticationService.isLogin = this.isLogin=isUserLoggedIn;
+  }
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
     private authenticationService: AuthenticationService,
     private alertService: AlertService) { }
+
+
 
     ngOnInit() {
       // reset login status
@@ -38,10 +46,12 @@ export class LoginComponent implements OnInit {
             data => {
               this.alertService.success('Login successful', true);
               console.log("Login successful");
+              this.onUserLoginUpdate(true);
               this.router.navigate(['/services']);
             },
             error => {
               console.log("error");
+              this.onUserLoginUpdate(false);
                 this.alertService.error(error._body);
                 this.loading = false;
             });
@@ -53,9 +63,12 @@ export class LoginComponent implements OnInit {
           .subscribe(
               data => {
                   this.alertService.success('Registration successful', true);
+                  console.log("data "+data);
+                  this.onUserLoginUpdate(true);
                   this.router.navigate(['/services']);
               },
               error => {
+                this.onUserLoginUpdate(false);
                   this.alertService.error(error._body);
                   this.loading = false;
               });

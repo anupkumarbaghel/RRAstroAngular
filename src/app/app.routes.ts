@@ -28,6 +28,10 @@ export const appRoute: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'default',
+        component: DefaultComponent
     }
 ];
 

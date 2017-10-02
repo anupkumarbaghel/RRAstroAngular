@@ -11,22 +11,16 @@ export class AuthenticationService {
     constructor(private http: Http, private config: AppConfig) { }
     private headers: Headers;
     public token: string;
+    public isLogin : boolean;
     private setHeaders() {
         
                console.log("setHeaders started");
                this.token = "Basic cm8uY2xpZW50OnNlY3JldA==";
-              // console.log("token" + this.token);
                this.headers = new Headers();
                this.headers.append('Content-Type', 'application/x-www-form-urlencoded');
                this.headers.append('Accept', 'application/json');
                this.headers.append('Authorization', this.token );        
         
-            //    var token ;
-            //    if (token !== "") {
-            //        let tokenValue = 'Bearer ' + token;
-            //        console.log("tokenValue:" + tokenValue);
-            //        this.headers.append('Authorization', tokenValue);
-            //    }
            }
 
 
@@ -53,8 +47,6 @@ export class AuthenticationService {
     login(email: string, password: string) {
 
         this.setHeaders();
-        // console.log(email);
-        // console.log(password);
         let params: any = {  
             username: email, // "ashish.shrivastava@infobeans.com", 
             password: password, //"Sonal@123",
@@ -64,7 +56,6 @@ export class AuthenticationService {
         let currentUser : User;
          // Encodes the parameters.  
          let body: string = this.encodeParams(params); 
-        // console.log(body);
         return this.http.post(this.config.apiUrl + '/connect/token', 
         body,
          { headers: this.headers })
@@ -75,13 +66,10 @@ export class AuthenticationService {
         if (user && user.access_token) {
             console.log('access_token ' + user.access_token);      
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('currentUser', JSON.stringify(user));
-              // this.currentUser =   localStorage.getItem('currentUser');
-             // localStorage.setItem('token', JSON.stringify(user.access_token));
+            localStorage.setItem('currentUser', JSON.stringify(user));            
             console.log('currentUser '+ localStorage.getItem('currentUser'));  
-           
+           this.isLogin=true;
             let name: string[any] = this.parseJwt(user.access_token);
-
             console.log(name['name']);
         }
             });
@@ -97,5 +85,7 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
+        this.isLogin=false;
+        console.log('user logged out');
     }
 }

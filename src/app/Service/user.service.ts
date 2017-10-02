@@ -3,6 +3,7 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
  
 import { AppConfig } from '../app.config';
 import { User } from '../model/user';
+import{ AuthenticationService} from '../Service/authentication.service';
  
 @Injectable()
 export class UserService {
@@ -17,7 +18,22 @@ export class UserService {
     }
  
     create(user: User) {
-        return this.http.post(this.config.apiUrl + '/api/loginout', user, this.jwt());
+       
+        return this.http.post(this.config.apiUrl + '/api/loginout', user, this.jwt())
+        .map((response: Response) =>{
+            let user = response.json();
+            let authService : AuthenticationService ;
+            console.log("user" + user);
+            if (user && user.access_token) {
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                let name: string[any] = authService.parseJwt(user.access_token);
+                
+                            console.log("name" + name['name']);
+            }
+
+        }); 
+        
+        
     }
  
     update(user: User) {

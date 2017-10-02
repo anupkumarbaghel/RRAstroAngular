@@ -1,0 +1,18 @@
+{
+        "version": "0.2.0",
+        "configurations": [
+
+            {
+                "type": "node2",
+                "request": "launch",
+                "sourceMaps": true,
+                "name": "Launch Program",
+                "program": "${file}",
+                "trace": true,
+                "outFiles": [
+                    "${workspaceRoot}/app/**/*.js"
+                ]
+               
+            }
+        ]
+    }
