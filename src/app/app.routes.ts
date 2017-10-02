@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import  {DefaultComponent } from './default/default.component'
+import { SubmitQuestionComponent } from './submitque/submit-question.component'
 
 export const appRoute: Routes = [
       { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -32,6 +33,10 @@ export const appRoute: Routes = [
     {
         path: 'default',
         component: DefaultComponent
+    },
+    {
+        path: 'submitque',
+        component: SubmitQuestionComponent
     }
 ];
 

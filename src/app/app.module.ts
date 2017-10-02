@@ -18,6 +18,7 @@ import {AuthenticationService} from './Service/authentication.service'
 import { UserService } from './Service/user.service';
 import{HttpModule} from '@angular/http';
 import { AppConfig } from './app.config';
+import { SubmitQuestionComponent } from './submitque/submit-question.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AppConfig } from './app.config';
     HomeComponent,
     AboutusComponent,
     ContactusComponent,
-    AlertComponent
+    AlertComponent,
+    SubmitQuestionComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(appRoute),FormsModule,HttpModule
