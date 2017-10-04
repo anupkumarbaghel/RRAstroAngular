@@ -19,6 +19,7 @@ import { UserService } from './Service/user.service';
 import{HttpModule} from '@angular/http';
 import { AppConfig } from './app.config';
 import { SubmitQuestionComponent } from './submitque/submit-question.component';
+import { submitQuestionService } from './Service/submitquestion.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { SubmitQuestionComponent } from './submitque/submit-question.component';
   imports: [
     BrowserModule, RouterModule.forRoot(appRoute),FormsModule,HttpModule
   ],
-  providers: [AlertService, UserService, AppConfig, AuthenticationService],
+  providers: [AlertService, UserService, AppConfig, AuthenticationService, submitQuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
