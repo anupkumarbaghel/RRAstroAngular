@@ -20,6 +20,15 @@ import{HttpModule} from '@angular/http';
 import { AppConfig } from './app.config';
 import { SubmitQuestionComponent } from './submitque/submit-question.component';
 import { submitQuestionService } from './Service/submitquestion.service';
+import { KundaliReqComponent } from './kundali-req/kundali-req.component';
+import {kundaliReqService } from './Service/kundalireq.service';
+//import { CustomFormsModule } from 'ng2-validation';
+import { NKDatetimeModule } from 'ng2-datetime/ng2-datetime';
+import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
+import { GetColorstoneComponent } from './get-colorstone/get-colorstone.component';
+import { colorStoneReqService } from './Service/colorstone.service';
+import { ThankyouComponent } from './thankyou/thankyou.component';
+
 
 @NgModule({
   declarations: [
@@ -31,12 +40,16 @@ import { submitQuestionService } from './Service/submitquestion.service';
     AboutusComponent,
     ContactusComponent,
     AlertComponent,
-    SubmitQuestionComponent
+    SubmitQuestionComponent,
+    KundaliReqComponent,
+    BookAppointmentComponent,
+    GetColorstoneComponent,
+    ThankyouComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(appRoute),FormsModule,HttpModule
+    BrowserModule, RouterModule.forRoot(appRoute),FormsModule,HttpModule, NKDatetimeModule
   ],
-  providers: [AlertService, UserService, AppConfig, AuthenticationService, submitQuestionService],
+  providers: [AlertService, UserService, AppConfig, AuthenticationService, submitQuestionService, kundaliReqService, colorStoneReqService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

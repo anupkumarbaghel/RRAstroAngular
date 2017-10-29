@@ -1,24 +1,22 @@
 import { Injectable } from '@angular/core';
-import { QuestionTopicModel } from '../model/question-ans/question-topic.model';
-import { QuestionModel } from '../model/question-ans/question.model';
 import { AppConfig } from '../app.config';
-
 import { Http, Response } from '@angular/http';
+import {ColorStoneRequestModel} from '../model/getColorStone/colorStoneReq';
 
 
 @Injectable()
-export class submitQuestionService {
+export class colorStoneReqService {
     constructor(private http: Http, private config: AppConfig) { }
 
-    saveQuestions(queTopic: QuestionTopicModel) {
+    postcolorStoneReq(colorStoneReq: ColorStoneRequestModel) {
         console.log('submit question service call');
-        return this.http.post(this.config.coreAPIUrl + '/api/questiontopic', queTopic)
+        console.log(JSON.stringify(colorStoneReq));
+        return this.http.post(this.config.coreAPIUrl + '/api/colorstonereq', colorStoneReq)
             .map((response: Response) => {
               //  let questionDetails:QuestionModel = response;
                 var obj = JSON.parse(JSON.stringify(response),);
                 console.log('response ' + JSON.stringify(response));
             });
     }
-
 
 }

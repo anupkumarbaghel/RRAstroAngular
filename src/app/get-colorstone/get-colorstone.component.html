@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="wrapper">
+  
+      <h2 class="cont-title">
+     <b>   Get the best semi precious stone for you according to Vedic Astrology</b>
+      </h2>
+      <p>
+        This is a complete analysis of your year ahead including love, money, health, property, prosperity, travel. It includes a
+        detailed character analysis. I'll tell you which are the aspects of your personality you can build on and which are
+        the ones you need to correct. Your Vedic horoscope in PDF format, your lucky number, colors, days come with this. Costs
+        $50.
+      </p>
+      <hr/>
+      <alert></alert>
+      <h3>
+        <b>Personal Details</b>
+      </h3>
+      <br />
+      <div class="col-md-12">
+        <div class="form-group row">
+          <label for="fname" class="col-sm-4 col-form-label">First Name</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" id="fname" [(ngModel)]="colorStoneReq.firstName">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="lname" class="col-sm-4 col-form-label">Last Name</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" id="lname" [(ngModel)]="colorStoneReq.lastName">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="lname" class="col-sm-4 col-form-label">Gender</label>
+          <div class="col-sm-4">
+            <select id="inputState" class="form-control" [(ngModel)]="colorStoneReq.Gender">
+              <option selected>Select</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="email" class="col-sm-4 col-form-label">Email</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" id="email" [(ngModel)]="colorStoneReq.email">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="phoneNum" class="col-sm-4 col-form-label">Phone Number</label>
+          <div class="col-sm-5">
+            <input type="tel" class="form-control" id="phoneNum" [(ngModel)]="colorStoneReq.phoneNumber">
+          </div>
+        </div>
+          <hr/>
+        <h3>
+        <b>  Birth Details</b>
+        </h3>
+        <br />
+        <div class="form-group row">
+          <label for="dob" class="col-sm-4 col-form-label">Date of Birth</label>
+          <div class="col-sm-5">
+                  <!-- <input type="text" id="dob" class="form-control" [(ngModel)]="colorStoneReq.dateOfBirth"/> -->
+                  <input type="date" class="form-control" [(ngModel)]="colorStoneReq.dateOfBirth">
+                 
+            <!-- <p *ngIf="field.errors?.date">error message</p> -->
+            
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="tob" class="col-sm-4 col-form-label">Time of Birth</label>
+          <div class="col-sm-5">
+              <input type="time" class="form-control" [(ngModel)]="colorStoneReq.timeOfBirth">
+            
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="bcity" class="col-sm-4 col-form-label">Birth City</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" id="bcity" [(ngModel)]="colorStoneReq.birthCity">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="cob" class="col-sm-4 col-form-label">Country of Birth</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" id="cob" [(ngModel)]="colorStoneReq.birthCountry">
+          </div>
+        </div>
+  
+        <div class="form-group" style="text-align: center">
+          <button type="submit" class="btn btn-2 btn-2a" (click)='saveColorStoneReq();'>Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>

@@ -9,18 +9,18 @@
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
                             <span class="fa fa-bars"></span>
                         </button>
-                            <a href="index.html" class="navbar-brand">Ram Ratan Astrology</a>
+                            <a href="index.html" class="navbar-brand">Ramratna Research Center</a>
                         </div>
                         <div class="collapse navbar-collapse navbar-right" id="mynavbar">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a routerLink='home' routerLinkActive='active'>Home</a></li>
-                                <li><a routerLink='services' routerLinkActive='active'>Services</a></li>
-                                <li><a routerLink='aboutus' routerLinkActive='active'>About Us</a></li>
-                                <li><a routerLink='contactus' routerLinkActive='active'>Contact Us</a></li>                                 
+                                <li [class.active]="step=='step1'" (click)="step='step1'"><a routerLink='home' routerLinkActive='active'>Home</a></li>
+                                <li [class.active]="step=='step2'" (click)="step='step2'" ><a routerLink='services' routerLinkActive='active'>Services</a></li>
+                                <li [class.active]="step=='step3'" (click)="step='step3'"><a routerLink='aboutus' routerLinkActive='active'>About Us</a></li>
+                                <li [class.active]="step=='step4'" (click)="step='step4'"><a routerLink='contactus' routerLinkActive='active'>Contact Us</a></li>                                 
                                 
                                <!-- <div *ngIf = "!isLogin"> </div> -->
-                                   <li *ngIf = "!isLogin"><a  (click)="onUserLogin();" >LOGIN</a></li>
-                                <li *ngIf = "isLogin"><a (click) ='logout();'>LOGOUT</a></li>
+                                   <li *ngIf = "!isLogin" role="login" [class.active]="step=='step5'" (click)="step='step5'"><a  (click)="onUserLogin();" >LOGIN</a></li>
+                                <li *ngIf = "isLogin" role="logout" [class.active]="step=='step6'" (click)="step='step6'"><a (click) ='logout();'>LOGOUT</a></li>
                             </ul>
                         </div>
                     </div>
@@ -33,19 +33,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-7 footer-copyright">
-                    © RamRatan Astrology - All rights reserved
-                    <div class="credits">
-                        
-                        Designed by <a href="https://RamRatanAstrology.com/">Ram Ratan Astrology</a>
-                    </div>
+                    © Ramratna Research Center - All rights reserved
                 </div>
                 <div class="col-sm-5 footer-social">
                     <div class="pull-right hidden-xs hidden-sm">
                         <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <!-- <a href="#"><i class="fa fa-dribbble"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-google-plus"></i></a>
-                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a> -->
                     </div>
                 </div>
             </div>

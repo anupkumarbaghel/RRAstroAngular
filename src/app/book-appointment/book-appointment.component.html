@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="wrapper">
+  
+      <h2 class="cont-title">
+     <b>   Request for kundali</b>
+      </h2>
+      <p>
+        This is a complete analysis of your year ahead including love, money, health, property, prosperity, travel. It includes a
+        detailed character analysis. I'll tell you which are the aspects of your personality you can build on and which are
+        the ones you need to correct. Your Vedic horoscope in PDF format, your lucky number, colors, days come with this. Costs
+        $50.
+      </p>
+      <hr/>
+      <h3>
+        <b>Personal Details</b>
+      </h3>
+      <br />
+      <div class="col-md-12">
+        <div class="form-group row">
+          <label for="fname" class="col-sm-4 col-form-label">First Name</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" id="fname" >
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="lname" class="col-sm-4 col-form-label">Last Name</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" id="lname" >
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="lname" class="col-sm-4 col-form-label">Gender</label>
+          <div class="col-sm-4">
+            <select id="inputState" class="form-control" >
+              <option selected>Select</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="email" class="col-sm-4 col-form-label">Email</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" id="email">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="phoneNum" class="col-sm-4 col-form-label">Phone Number</label>
+          <div class="col-sm-5">
+            <input type="tel" class="form-control" id="phoneNum" >
+          </div>
+        </div>
+          <hr/>
+        <h3>
+        <b>  Birth Details</b>
+        </h3>
+        <br />
+        <div class="form-group row">
+          <label for="dob" class="col-sm-4 col-form-label">Date of Birth</label>
+          <div class="col-sm-5">
+                  <!-- <input type="text" id="dob" class="form-control" [(ngModel)]="kundaliReq.dateOfBirth"/> -->
+                  
+                  <!-- <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span> -->
+           
+            <!-- <p *ngIf="field.errors?.date">error message</p> -->
+            
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="tob" class="col-sm-4 col-form-label">Time of Birth</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" id="tob">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="bcity" class="col-sm-4 col-form-label">Birth City</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" id="bcity" >
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="cob" class="col-sm-4 col-form-label">Country of Birth</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" id="cob">
+          </div>
+        </div>
+  
+        <div class="form-group" style="text-align: center">
+          <button type="submit" class="btn btn-2 btn-2a" >Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>

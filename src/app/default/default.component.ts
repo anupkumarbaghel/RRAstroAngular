@@ -22,6 +22,7 @@ export class DefaultComponent implements OnInit {
   onUserLogin(){
     console.log('this.isLogin ' + this.isLogin);
     this.userLogin.emit(this.isLogin);
+    this.router.isActive('',true);
     this.router.navigate(['/login']);
   }
 
