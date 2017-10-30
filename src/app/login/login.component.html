@@ -1,16 +1,17 @@
 <div class="container">
     <div class="wrapper">
-            <div class="panel with-nav-tabs panel-info">
-                    <div class="panel-body">
-        <div class="col-md-6 divide" style="align-content:center; border-right: 1px solid #ccc;padding-right: 30px;
-        margin-right: -10px;">
-            
-                    <div class="tab-content">
-                        <div id="login" class="tab-pane fade in active register">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <h2 class="text-center" style="color: #337ab7;"> <strong> Login  </strong></h2><hr />
-                                    <form name="form1" (ngSubmit)="fl.form.valid && login()" #fl="ngForm" novalidate>
+        <div class="panel with-nav-tabs panel-info">
+            <div class="panel-body">
+                <alert></alert>
+                <div class="col-md-6" style="align-content:center;">
+
+                    <!-- <div class="tab-content"> -->
+                    <div id="login" class="tab-pane fade in active register">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <h2 class="text-center" style="color: #337ab7;"> <strong> Login  </strong></h2>
+                                <hr />
+                                <form name="form1" (ngSubmit)="fl.form.valid && login()" #fl="ngForm" novalidate>
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
@@ -18,11 +19,11 @@
                                                     <div class="input-group-addon">
                                                         <span class="glyphicon glyphicon-user"></span>
                                                     </div>
-                                                    <input type="text" placeholder="User Name" id="uname" name="uname" class="form-control" [(ngModel)]="model.username" #email="ngModel"  >
+                                                    <input type="text" placeholder="User Name" id="uname" name="uname" class="form-control" [(ngModel)]="model.username" #email="ngModel">
                                                     <!--<div [hidden]="nameRef.valid || nameRef.pristine" class="alert alert-danger">
                                                         Please enter the username
                                                     </div>-->
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>
@@ -34,7 +35,8 @@
                                                     <div class="input-group-addon">
                                                         <span class="glyphicon glyphicon-lock"></span>
                                                     </div>
-                                                    <input type="password" id="loginpassword" placeholder="Password" name="loginPassword" class="form-control" [(ngModel)]="model.password" #loginPassword="ngModel"  >
+                                                    <input type="password" id="loginpassword" placeholder="Password" name="loginPassword" class="form-control" [(ngModel)]="model.password"
+                                                        #loginPassword="ngModel">
                                                     <!--<div [hidden]="passRef.valid || passRef.pristine" class="alert alert-danger">
                                                         Please enter the password
                                                     </div>-->
@@ -53,63 +55,93 @@
                                     <div class="row">
                                         <div class="col-xs-10 col-sm-10 col-md-10">
                                             <!-- <button type="submit" class="btn btn-primary btn-block btn-lg"> Login </button> -->
-                                            <button [disabled]="loading" class="btn btn-primary btn-block btn-lg" >Login</button>
-                                            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                            <button [disabled]="loading" class="btn btn-primary btn-block btn-lg">Login</button>
+                                            <!-- <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /> -->
                                         </div>
                                     </div>
-                                    </form>
-                                    </div>
-                                </div>
-                                
+                                </form>
                             </div>
                         </div>
 
                     </div>
-                
-           
-        <div class="col-md-6" >
-                <div class="col-md-offset-3">
-                        <alert></alert>
-                        <h2 class="text-center" style="color: #337ab7;"> <strong> Register </strong> </h2><hr />
-                        <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
-                                
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-                                <!-- <label for="Email">Email</label> -->
-                                <input type="text" class="form-control" name="email" placeholder="Email" [(ngModel)]="model.email" #email="ngModel" required />
-                                <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
-                            </div>
-                            
-                            <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-                                <label for="lastName">Last Name</label>
-                                <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" required />
-                                <div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-                                <label for="username">Username</label>
-                                <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
-                                <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
-                            </div>-->
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }"> 
-                                <!-- <label for="password">Password</label> -->
-                                <input type="password" class="form-control" id="password" placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel" required />
-                                <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !confirmPassword.valid }"> 
-                                    <!-- <label for="confirmPassword">Confirm Password</label> -->
-                                    <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" required />
-                                    <div *ngIf="f.submitted && !confirmPassword.valid" class="help-block">Confirm Password is required</div>
+                </div>
+
+                <!-- </div> -->
+
+
+                <div class="col-md-6" style=" border-left: 1px solid #ccc;padding-right: 30px;
+                margin-right: -10px;">
+
+                    <h2 class="text-center" style="color: #337ab7;"> <strong> Register </strong> </h2>
+                    <hr />
+                    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+                            <div class="form-group row">
+                                    <label for="name" class="col-sm-4 col-form-label">Name</label>
+                                    <div class="col-sm-7">
+                                      <input type="text" class="form-control" id="name">
+                                    </div>
+                                  </div>
+                        <div class="form-group row">
+                                <label for="dob" class="col-sm-4 col-form-label">Date of Birth</label>
+                                <div class="col-sm-7">
+                            <input type="date" id="dob" class="form-control">
+                        </div>
+                            <!-- <div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div> -->
+                        </div>
+                        <div class="form-group row">
+                                <label for="tob" class="col-sm-4 col-form-label">Time of Birth</label>
+                                <div class="col-sm-7">
+                                    <input type="time" class="form-control">
+                                  
                                 </div>
-                                <div class="form-group col-xs-10 col-sm-10 col-md-10">                            
-                                <button [disabled]="loading" class="btn btn-primary btn-block btn-lg">Register</button>
-                                <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-                                <!-- <a [routerLink]="['/login']" class="btn btn-link">Cancel</a> -->
+                              </div>
+                              <div class="form-group row">
+                                    <label for="bcity" class="col-sm-4 col-form-label">Birth City</label>
+                                    <div class="col-sm-7">
+                                      <input type="text" class="form-control" id="bcity" >
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="cob" class="col-sm-4 col-form-label">Country of Birth</label>
+                                    <div class="col-sm-7">
+                                      <input type="text" class="form-control" id="cob">
+                                    </div>
+                                  </div>
+                        <div class="form-group row" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+                            <label for="Email"  class="col-sm-4 col-form-label">Email</label>
+                            <div class="col-sm-7">
+                            <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required />
+                            <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
+                        </div>
+                        </div>
+
+
+                        <div class="form-group row" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                            <label for="password"  class="col-sm-4 col-form-label">Password</label>
+                            <div class="col-sm-7">
+                            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="model.password" #password="ngModel"
+                                required />
+                            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                        <div class="form-group row" [ngClass]="{ 'has-error': f.submitted && !confirmPassword.valid }">
+                            <label for="confirmPassword"  class="col-sm-4 col-form-label">Confirm Password</label>
+                            <div class="col-sm-7">
+                            <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel"
+                                required />
+                            <div *ngIf="f.submitted && !confirmPassword.valid" class="help-block">Confirm Password is required</div>
+                        </div>
+                        </div>
+                        <div class="form-group col-xs-10 col-sm-10 col-md-10">
+                            <button [disabled]="loading" class="btn btn-primary btn-block btn-lg">Register</button>
+                            <!-- <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /> -->
+                            <!-- <a [routerLink]="['/login']" class="btn btn-link">Cancel</a> -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-</div>
-</div>
-<div class="container">
-    <router-outlet></router-outlet>
-</div>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
