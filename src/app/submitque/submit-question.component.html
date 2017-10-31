@@ -1,17 +1,85 @@
 <div class="container">
   <div class="wrapper">
-
+      <h2 class="cont-title">
+          <b> Ask your questions</b>
+        </h2>
+        <p>
+            You can ask any 3 questions related to any aspect of your life. The question will be analyzed based on your chart and appropriate answer will be given along with any remedy if applicable.            Please specify the question, detailing the situation as much as possible.
+            Submit the form and proceed to payment gateway to complete the transaction. Costs $50.
+        </p>
+        <hr/>
     <h3 class="cont-title">
-      Please submit your question here!
+        
     </h3>
+    <div class="col-md-12">
+      <div class="form-group row">
+        <label for="fname" class="col-sm-4 col-form-label">First Name</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" id="fname" [(ngModel)]="queTopic.firstName">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lname" class="col-sm-4 col-form-label">Last Name</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" id="lname" [(ngModel)]="queTopic.lastName">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lname" class="col-sm-4 col-form-label">Gender</label>
+        <div class="col-sm-4">
+          <select id="inputState" class="form-control" [(ngModel)]="queTopic.gender">
+              <option selected>Select</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+        </div>
+      </div>
 
-    <div class="form-group">
-      <!-- <label for="submitQuestion">Question/Query</label> -->
-      <textarea class="form-control" id="submitQuestion" rows="8" [(ngModel)]="questionType.questionDescription"></textarea>
+      <div class="form-group row">
+        <label for="email" class="col-sm-4 col-form-label">Email</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" id="email" [(ngModel)]="queTopic.email">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="dob" class="col-sm-4 col-form-label">Date of Birth</label>
+        <div class="col-sm-5">
+          <input type="date" class="form-control" [(ngModel)]="queTopic.dateOfBirth">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="tob" class="col-sm-4 col-form-label">Time of Birth</label>
+        <div class="col-sm-5">
+          <input type="time" class="form-control" [(ngModel)]="queTopic.timeOfBirth">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="bcity" class="col-sm-4 col-form-label">Birth City</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" id="bcity" [(ngModel)]="queTopic.birthCity">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="cob" class="col-sm-4 col-form-label">Country of Birth</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" id="cob" [(ngModel)]="queTopic.birthCountry">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="submitQuestion" class="col-sm-4 col-form-label">Questions/Queries</label>
+        <div class="col-sm-8">
+          <textarea class="form-control" id="submitQuestion" rows="8" [(ngModel)]="questionType.questionDescription"></textarea>
+        </div>
+      </div>
+      <br />
+      <div class="form-group row">
+        <div class="col-md-6">
+          <button type="button" class="btn btn-2 btn-2a" (click)='backToService();'>Back</button>
+        </div>
+        <div class="col-md-6" style="text-align:right">
+          <button type="submit" class="btn btn-2 btn-2a" (click)='saveQuestions();'>Submit</button>
+        </div>
+      </div>
     </div>
-<div class="form-group" style="text-align: center" >
-  <button type="submit" class="btn btn-2 btn-2a" (click)='saveQuestions();' >Submit</button>
-</div>
   </div>
-</div>
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>

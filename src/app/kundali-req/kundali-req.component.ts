@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {KundaliRequestModel} from '../model/kundaliReq/kundaliRequest';
 import {kundaliReqService} from '../service/kundalireq.service';
+import { Router} from '@angular/router'
 
 @Component({
   selector: 'app-kundali-req',
@@ -11,10 +12,15 @@ import {kundaliReqService} from '../service/kundalireq.service';
 export class KundaliReqComponent implements OnInit {
 
 
-  constructor(private kreqService: kundaliReqService) { }
+  constructor(private kreqService: kundaliReqService,
+    private router: Router) { }
 
   kundaliReq : KundaliRequestModel =  new KundaliRequestModel();
   ngOnInit() {
+  }
+  backToService():void{
+
+    this.router.navigate(['/services'])
   }
 
   saveKundaliReq(): void {
