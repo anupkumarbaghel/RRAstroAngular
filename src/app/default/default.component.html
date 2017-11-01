@@ -14,9 +14,10 @@
                         <div class="collapse navbar-collapse navbar-right" id="mynavbar">
                             <ul class="nav navbar-nav">
                                 <li [class.active]="step=='step1'" (click)="step='step1'"><a routerLink='home' routerLinkActive='active'>Home</a></li>
-                                <li [class.active]="step=='step2'" (click)="step='step2'" ><a routerLink='services' routerLinkActive='active'>Services</a></li>
-                                <li [class.active]="step=='step3'" (click)="step='step3'"><a routerLink='aboutus' routerLinkActive='active'>About Us</a></li>
-                                <li [class.active]="step=='step4'" (click)="step='step4'"><a routerLink='contactus' routerLinkActive='active'>Contact Us</a></li>                                 
+                                <li [class.active]="step=='step2'" (click)="step='step2'" ><a routerLink='/services' routerLinkActive='active-link' [routerLinkActiveOptions]="{exact:
+                                    true}">Services</a></li>
+                                <li [class.active]="step=='step3'" (click)="step='step3'"><a routerLink='/aboutus' routerLinkActive='active-link'>About Us</a></li>
+                                <li [class.active]="step=='step4'" (click)="step='step4'"><a routerLink='/contactus' routerLinkActive='active-link'>Contact Us</a></li>                                 
                                 
                                <!-- <div *ngIf = "!isLogin"> </div> -->
                                    <li *ngIf = "!isLogin" role="login" [class.active]="step=='step5'" (click)="step='step5'"><a  (click)="onUserLogin();" >LOGIN</a></li>
