@@ -19,26 +19,26 @@
         <div class="form-group row">
           <label for="fname" class="col-sm-4 col-form-label">Schedule date</label>
           <div class="col-sm-5">
-              <input type="date" class="form-control">
+              <input type="date" class="form-control" [(ngModel)]="bookApp.dateOfAppointment">
           </div>
         </div>
         <div class="form-group row">
           <label for="lname" class="col-sm-4 col-form-label">Schedule time</label>
           <div class="col-sm-5">
-              <input type="time" class="form-control">
+              <input type="time" class="form-control" [(ngModel)]="bookApp.timeOfAppointment">
           </div>
         </div>
         
         <div class="form-group row">
           <label for="phoneNum" class="col-sm-4 col-form-label">Alternate Phone Number</label>
           <div class="col-sm-5">
-            <input type="tel" class="form-control" id="phoneNum" >
+            <input type="tel" class="form-control" id="phoneNum" [(ngModel)]="bookApp.alternatePhoneNumber">
           </div>
         </div>
         <div class="form-group row">
             <label for="comment" class="col-sm-4 col-form-label">Comments(optional)</label>
             <div class="col-sm-5">
-              <textarea type="text" class="form-control" rows=8 id="comment"></textarea>
+              <textarea type="text" class="form-control" rows=8 id="comment" [(ngModel)]="bookApp.comments"></textarea>
             </div>
           </div>
           <hr/>
@@ -47,7 +47,7 @@
                 <button type="button" class="btn btn-2 btn-2a" (click)='backToService();' >Back</button>
               </div>
               <div class="col-md-6" style="text-align:right">
-                  <button type="submit" class="btn btn-2 btn-2a" >Submit</button>
+                  <button type="submit" class="btn btn-2 btn-2a" (click)='ScheduleAppointment();' >Submit</button>
               </div>
             </div>
         

@@ -51,7 +51,7 @@ export const appRoute: Routes = [
         component: BookAppointmentComponent
     },
     {
-        path: 'get-colorstone',
+        path: 'services/get-colorstone',
         component: GetColorstoneComponent
     },
     {

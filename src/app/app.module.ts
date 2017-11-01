@@ -28,6 +28,7 @@ import { BookAppointmentComponent } from './book-appointment/book-appointment.co
 import { GetColorstoneComponent } from './get-colorstone/get-colorstone.component';
 import { colorStoneReqService } from './Service/colorstone.service';
 import { ThankyouComponent } from './thankyou/thankyou.component';
+import { bookAppService } from './Service/bookapp.service';
 
 
 @NgModule({
@@ -49,7 +50,7 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
   imports: [
     BrowserModule, RouterModule.forRoot(appRoute),FormsModule,HttpModule, NKDatetimeModule
   ],
-  providers: [AlertService, UserService, AppConfig, AuthenticationService, submitQuestionService, kundaliReqService, colorStoneReqService],
+  providers: [AlertService, UserService, AppConfig, AuthenticationService, submitQuestionService, kundaliReqService, colorStoneReqService, bookAppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
