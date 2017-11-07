@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService } from '../Service/alert.service';
 import { UserService } from '../Service/user.service';
 import { AuthenticationService } from '../Service/authentication.service';
+import {RegisterModel} from '../model/register/register.model';
  
 
 @Component({
@@ -12,7 +13,9 @@ import { AuthenticationService } from '../Service/authentication.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  model: any = {};
+  registerModel: RegisterModel=new RegisterModel();
+  loginModel:RegisterModel=new RegisterModel();
+  confirmPasswordNotMatch:boolean;
   loading = false;
   returnUrl: string;
   isLogin : boolean = false;
@@ -41,7 +44,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loading = true;
-    this.authenticationService.login(this.model.username, this.model.password)
+    this.authenticationService.login(this.loginModel.userName, this.loginModel.password)
         .subscribe(
             data => {
               this.alertService.success('Login successful', true);
@@ -58,8 +61,9 @@ export class LoginComponent implements OnInit {
 }
 
     register() {
+ debugger;
       this.loading = true;
-      this.userService.create(this.model)
+      this.userService.create(this.registerModel)
           .subscribe(
               data => {
                   this.alertService.success('Registration successful', true);
@@ -72,5 +76,10 @@ export class LoginComponent implements OnInit {
                   this.alertService.error(error._body);
                   this.loading = false;
               });
+  }
+  checkConfirmPassword(){
+    if(this.registerModel.password==this.registerModel.confirmPassword)
+     this.confirmPasswordNotMatch=false;
+     else this.confirmPasswordNotMatch=true;
   }
 }

@@ -11,7 +11,7 @@
                             <div class="row">
                                 <h2 class="text-center" style="color: #337ab7;"> <strong> Login  </strong></h2>
                                 <hr />
-                                <form name="form1" (ngSubmit)="fl.form.valid && login()" #fl="ngForm" novalidate>
+                                <form name="form1" (ngSubmit)="fl.valid && login()" #fl="ngForm" novalidate>
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <!-- <div class="form-group">
@@ -26,7 +26,7 @@
                                             <div class="form-group row">
                                                     <label for="username" class="col-sm-4 col-form-label">User Name</label>
                                                     <div class="col-sm-7">
-                                                        <input type="text" class="form-control" id="username" [(ngModel)]="model.username" #email="ngModel">
+                                                        <input type="text" name="userName" class="form-control" id="username" [(ngModel)]="loginModel.userName" #email="ngModel">
                                                     </div>
                                                 </div>
                                         </div>
@@ -46,7 +46,7 @@
                                             <div class="form-group row">
                                                     <label for="loginpassword" class="col-sm-4 col-form-label">Password</label>
                                                     <div class="col-sm-7">
-                                                        <input type="text" class="form-control" id="loginpassword" [(ngModel)]="model.password" #loginPassword="ngModel">
+                                                        <input type="text" name="loginPassword" class="form-control" id="loginpassword" [(ngModel)]="loginModel.password" #loginPassword="ngModel">
                                                     </div>
                                                 </div>
                                         </div>
@@ -81,66 +81,80 @@
 
                     <h2 class="text-center" style="color: #337ab7;"> <strong> Register </strong> </h2>
                     <hr />
-                    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
-                        <div class="form-group row">
-                            <label for="name" class="col-sm-4 col-form-label">Name</label>
+                    <form name="registerForm" (ngSubmit)="registrationForm.valid && register()" #registrationForm="ngForm" novalidate>
+                        <div class="form-group row" [ngClass]="{ 'has-error':fullName.invalid && fullName.touched}">
+                            <label for="name" class="col-sm-4 col-form-label">*Name</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="name">
+                                <input type="text" [(ngModel)]="registerModel.fullName" required #fullName="ngModel" name="fullName" class="form-control" id="name">
+                                <div *ngIf="fullName.errors && fullName.touched" class="help-block">Name is required</div>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="dob" class="col-sm-4 col-form-label">Date of Birth</label>
+                        <div class="form-group row"  [ngClass]="{ 'has-error':dob.invalid && dob.touched}">
+                            <label for="dob" class="col-sm-4 col-form-label">*Date of Birth</label>
                             <div class="col-sm-7">
-                                <input type="date" id="dob" class="form-control">
+                                <input [(ngModel)]="registerModel.dateOfBirth" required #dob="ngModel" name="dob" type="date" id="dob" class="form-control">
+                                <div *ngIf="dob.errors && dob.touched" class="help-block">Date of Birth is required</div>
                             </div>
                             <!-- <div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div> -->
                         </div>
-                        <div class="form-group row">
-                            <label for="tob" class="col-sm-4 col-form-label">Time of Birth</label>
+                        <div class="form-group row"  [ngClass]="{ 'has-error':tob.invalid && tob.touched}">
+                            <label for="tob" class="col-sm-4 col-form-label">*Time of Birth</label>
                             <div class="col-sm-7">
-                                <input type="time" class="form-control">
+                                <input  required [(ngModel)]="registerModel.timeOfBirth" #tob="ngModel" name="tob" type="time" class="form-control">
+                                <div *ngIf="tob.errors && tob.touched" class="help-block">Time of Birth is required</div>
 
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="bcity" class="col-sm-4 col-form-label">Birth City</label>
+                        <div class="form-group row"  [ngClass]="{ 'has-error':birthCity.invalid && birthCity.touched}">
+                            <label for="bcity" class="col-sm-4 col-form-label">*Birth City</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="bcity">
+                                <input  required [(ngModel)]="registerModel.birthCity" #birthCity="ngModel" name="birthCity" type="text" class="form-control" id="bcity">
+                                <div *ngIf="birthCity.errors && birthCity.touched" class="help-block">Birth City is required</div>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="cob" class="col-sm-4 col-form-label">Country of Birth</label>
+                        <div class="form-group row"  [ngClass]="{ 'has-error':birthCountry.invalid && birthCountry.touched}">
+                            <label for="cob" class="col-sm-4 col-form-label">*Country of Birth</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="cob">
+                                <input [(ngModel)]="registerModel.birthCountry" required #birthCountry="ngModel" name="birthCountry" type="text" class="form-control" id="cob">
+                                <div *ngIf="birthCountry.errors && birthCountry.touched" class="help-block">Country of Birth is required</div>
                             </div>
                         </div>
-                        <div class="form-group row" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-                            <label for="Email" class="col-sm-4 col-form-label">Email</label>
+                        <div class="form-group row" [ngClass]="{ 'has-error':email.invalid && email.touched}">
+                            <label for="email" class="col-sm-4 col-form-label">*Email</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required />
-                                <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
+                                <input type="text" class="form-control" name="email" [(ngModel)]="registerModel.email" #email="ngModel"
+                                pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+                                required />
+
+                                <div *ngIf="email.errors && email.touched ">
+                                    <div *ngIf="email.errors.required" class="help-block">Email is required</div>
+                                    <div *ngIf="email.errors.pattern && email.touched" class="help-block">Please enter valid email</div>
+                                </div>
+
+                               
                             </div>
                         </div>
 
 
-                        <div class="form-group row" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-                            <label for="password" class="col-sm-4 col-form-label">Password</label>
+                        <div class="form-group row" [ngClass]="{ 'has-error':password.invalid && password.touched }">
+                            <label for="password" class="col-sm-4 col-form-label">*Password</label>
                             <div class="col-sm-7">
-                                <input type="password" class="form-control" id="password" name="password" [(ngModel)]="model.password" #password="ngModel"
+                                <input type="password" class="form-control" id="password" name="password" [(ngModel)]="registerModel.password" #password="ngModel"
                                     required />
-                                <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+                                <div *ngIf="password.errors && password.touched" class="help-block">Password is required</div>
                             </div>
                         </div>
-                        <div class="form-group row" [ngClass]="{ 'has-error': f.submitted && !confirmPassword.valid }">
-                            <label for="confirmPassword" class="col-sm-4 col-form-label">Confirm Password</label>
+                        <div class="form-group row" [ngClass]="{ 'has-error':confirmPassword.invalid && confirmPassword.touched }">
+                            <label for="confirmPassword" class="col-sm-4 col-form-label">*Confirm Password</label>
                             <div class="col-sm-7">
-                                <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel"
+                                <input type="password" (blur)="checkConfirmPassword()" class="form-control" name="confirmPassword" [(ngModel)]="registerModel.confirmPassword" #confirmPassword="ngModel"
                                     required />
-                                <div *ngIf="f.submitted && !confirmPassword.valid" class="help-block">Confirm Password is required</div>
+                                <div *ngIf="confirmPasswordNotMatch" class="help-block">Password not match</div>
+                                <div *ngIf="confirmPassword.errors && confirmPassword.touched"  class="help-block">Confirm Password is required</div>
                             </div>
                         </div>
                         <div class="form-group col-xs-10 col-sm-10 col-md-10">
-                            <button [disabled]="loading" class="btn btn-primary btn-block btn-lg">Register</button>
+                            <button [disabled]="registrationForm.invalid" class="btn btn-primary btn-block btn-lg">Register</button>
                             <!-- <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /> -->
                             <!-- <a [routerLink]="['/login']" class="btn btn-link">Cancel</a> -->
                         </div>

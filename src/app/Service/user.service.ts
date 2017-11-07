@@ -3,6 +3,7 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
  
 import { AppConfig } from '../app.config';
 import { User } from '../model/user';
+import {RegisterModel} from '../model/register/register.model';
 import{ AuthenticationService} from '../Service/authentication.service';
  
 @Injectable()
@@ -17,7 +18,7 @@ export class UserService {
         return this.http.get(this.config.apiUrl + '/users/' + _id, this.jwt()).map((response: Response) => response.json());
     }
  
-    create(user: User) {
+    create(user: RegisterModel) {
        
         return this.http.post(this.config.apiUrl + '/api/loginout', user, this.jwt())
         .map((response: Response) =>{

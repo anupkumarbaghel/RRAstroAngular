@@ -23,7 +23,6 @@ import { submitQuestionService } from './Service/submitquestion.service';
 import { KundaliReqComponent } from './kundali-req/kundali-req.component';
 import {kundaliReqService } from './Service/kundalireq.service';
 //import { CustomFormsModule } from 'ng2-validation';
-import { NKDatetimeModule } from 'ng2-datetime/ng2-datetime';
 import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
 import { GetColorstoneComponent } from './get-colorstone/get-colorstone.component';
 import { colorStoneReqService } from './Service/colorstone.service';
@@ -48,7 +47,7 @@ import { bookAppService } from './Service/bookapp.service';
     ThankyouComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(appRoute),FormsModule,HttpModule, NKDatetimeModule
+    BrowserModule, RouterModule.forRoot(appRoute),FormsModule,HttpModule
   ],
   providers: [AlertService, UserService, AppConfig, AuthenticationService, submitQuestionService, kundaliReqService, colorStoneReqService, bookAppService],
   bootstrap: [AppComponent]
